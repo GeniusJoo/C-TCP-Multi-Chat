@@ -1,0 +1,17 @@
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\Multi_Chat_Client.csproj.AssemblyReference.cache
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\Multi_Chat_Client.Form1.resources
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\Multi_Chat_Client.csproj.GenerateResource.cache
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\Multi_Chat_Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\Multi_Chat_Client.AssemblyInfoInputs.cache
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\Multi_Chat_Client.AssemblyInfo.cs
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\Multi_Chat_Client.csproj.CoreCompileInputs.cache
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\bin\Debug\net6.0-windows\Multi_Chat_Client.exe
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\bin\Debug\net6.0-windows\Multi_Chat_Client.deps.json
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\bin\Debug\net6.0-windows\Multi_Chat_Client.runtimeconfig.json
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\bin\Debug\net6.0-windows\Multi_Chat_Client.dll
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\bin\Debug\net6.0-windows\Multi_Chat_Client.pdb
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\Multi_Chat_Client.dll
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\refint\Multi_Chat_Client.dll
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\Multi_Chat_Client.pdb
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\Multi_Chat_Client.genruntimeconfig.cache
+C:\Users\wnwld\source\repos\Multi_Chat_Client\Multi_Chat_Client\obj\Debug\net6.0-windows\ref\Multi_Chat_Client.dll
