@@ -19,12 +19,13 @@ namespace Multi_Chat_Server
         public Form1()
         {
             InitializeComponent();
-            Thread t = new Thread(connect);
+            // 쓰레드 생성
+            Thread t = new Thread(InitSocket);
             t.IsBackground = true;
             t.Start();
         }
 
-        private void connect()
+        private void InitSocket()
         {
             server = new TcpListener(IPAddress.Any, 9999); // 서버 접속 IP 포트
             clientSocket = default(TcpClient); // 소켓 설정
@@ -50,7 +51,7 @@ namespace Multi_Chat_Server
                     SendMessageAll(user_name + "님이 입장했습니다.", "", false); // 모든 client에게 메시지 전송
                     handleClient h_client = new handleClient(); // 클라이언트 추가
                     h_client.OnReceived += new handleClient.MessageDisplayHandler(OnReceived);
-                    h_client.OnDisconnected += new handleClient.DisconnectedHandler(h_client_OnDisconnect);
+                    h_client.OnDisconnected += new handleClient.DisconnectedHandler(h_client_OnDisconnected);
                     h_client.startClient(clientSocket, clientList);
                 }
                 catch(SocketException se ) { break; }
@@ -60,7 +61,7 @@ namespace Multi_Chat_Server
             server.Stop(); // 서버 종료
         }
 
-        void h_client_OnDisconnect(TcpClient clientSocket) // client 접속 해제 핸들러
+        void h_client_OnDisconnected(TcpClient clientSocket) // client 접속 해제 핸들러
         {
             if(clientList.ContainsKey(clientSocket)) clientList.Remove(clientSocket);
         }

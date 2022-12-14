@@ -1,36 +1,34 @@
-using System.Net.Sockets;
+ï»¿using System.Net.Sockets;
 using System.Text;
 using System;
 using System.Threading;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace Multi_Chat_Client
+namespace Multi_Chat_Server
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        TcpClient clientSocket = new TcpClient(); // ¼ÒÄÏ
+        TcpClient clientSocket = new TcpClient(); // ì†Œì¼“
         NetworkStream stream = default(NetworkStream);
         string message = string.Empty;
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
-                clientSocket.Connect("192.168.0.229", 9999); // Á¢¼Ó IP ¹× Port
+                clientSocket.Connect("192.168.0.229", 9999); // ì ‘ì† IP ë° Port
                 stream = clientSocket.GetStream();
             }
             catch (Exception e2)
             {
-                MessageBox.Show("¼­¹ö°¡ ½ÇÇàÁßÀÌ ¾Æ´Õ´Ï´Ù.", "¿¬°á ½ÇÆĞ!");
+                MessageBox.Show("ì„œë²„ê°€ ì‹¤í–‰ì¤‘ì´ ì•„ë‹™ë‹ˆë‹¤.", "ì—°ê²° ì‹¤íŒ¨!");
                 Application.Exit();
             }
-            message = "Ã¤ÆÃ¼­¹ö¿¡ ¿¬°áµÇ¾ú½À´Ï´Ù.";
-            Console.WriteLine("¼º°ø");
+            message = "ì±„íŒ…ì„œë²„ì— ì—°ê²°ë˜ì—ˆìŠµë‹ˆë‹¤.";
             DisplayText(message);
 
             byte[] buffer = Encoding.Unicode.GetBytes("$");
@@ -42,7 +40,6 @@ namespace Multi_Chat_Client
             t_handler.Start();
         }
 
-
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -50,6 +47,7 @@ namespace Multi_Chat_Client
 
         private void button1_Click(object sender, EventArgs e)
         {
+            NetworkStream steam = clientSocket.GetStream();
             richTextBox1.Focus();
             byte[] buffer = Encoding.Unicode.GetBytes(richTextBox1.Text + "$");
             stream.Write(buffer, 0, buffer.Length);
@@ -57,7 +55,7 @@ namespace Multi_Chat_Client
             richTextBox1.Text = "";
         }
 
-        private void GetMessage() // ¸Ş½ÃÁö ¹Ş±â
+        private void GetMessage() // ë©”ì‹œì§€ ë°›ê¸°
         {
             while (true)
             {
@@ -66,14 +64,12 @@ namespace Multi_Chat_Client
                 byte[] buffer = new byte[BUFFERSIZE];
                 int bytes = stream.Read(buffer, 0, buffer.Length);
 
-                string message = Encoding.Unicode.GetString(buffer,0,bytes);
+                string message = Encoding.Unicode.GetString(buffer, 0, bytes);
                 DisplayText(message);
             }
         }
 
-
-
-        private void DisplayText(string text) // Server¿¡ ¸Ş½ÃÁö Ãâ·Â
+        private void DisplayText(string text) // Serverì— ë©”ì‹œì§€ ì¶œë ¥
         {
             if (richTextBox1.InvokeRequired)
             {
@@ -84,12 +80,12 @@ namespace Multi_Chat_Client
                 richTextBox1.AppendText(text + Environment.NewLine);
             }
         }
-        private void TextBox1_KeyUp(object sender, KeyEventArgs e)
-         {
-             if (e.KeyCode == Keys.Enter) // ¿£ÅÍÅ° ´­·¶À» ¶§
-                 button1_Click(this, e);
-         }
-        private void Form1_FormClosing(object sender, FormClosedEventArgs e) // Æû ´İÀ» ¶§
+        private void richTextBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // ì—”í„°í‚¤ ëˆŒë €ì„ ë•Œ
+                button1_Click(this, e);
+        }
+        private void Form1_FormClosing(object sender, FormClosedEventArgs e) // í¼ ë‹«ì„ ë•Œ
         {
             byte[] buffer = Encoding.Unicode.GetBytes("leaveChat" + "$");
             stream.Write(buffer, 0, buffer.Length);
@@ -97,11 +93,5 @@ namespace Multi_Chat_Client
             Application.ExitThread();
             Environment.Exit(0);
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
